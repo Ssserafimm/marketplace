@@ -30,3 +30,12 @@ services:
       - "8000:8002"
     volumes:
       - .:/app
+
+  puddle: 
+    build:
+      context: ./puddle
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8003"
+    volumes:
+      - .:/app
