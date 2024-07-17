@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./conversation
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - dashboard
+      - item
+
+  dashboard:
+    build:
+      context: ./dashboard
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8001"
+    volumes:
+      - .:/app
+
+  item:
+    build:
+      context: ./item
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8002"
+    volumes:
+      - .:/app
